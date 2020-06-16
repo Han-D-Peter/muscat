@@ -1,4 +1,28 @@
 extends layouts/main.pug
 
-block potato
-    p Hello
+block maincontent
+    .main__title
+        .main__title-text Content List
+    .main__content
+        each content in contents
+            .content-box
+                .content-boxName=content.name
+                .content-boxDate 신청기간: #{content.startDate} ~ #{content.expiredDate}
+                .content-boxAge 연령 #{content.minage}세 ~ #{content.maxage}세
+                .content-boxWhere
+                    each item in content.where
+                        span.content-boxWhere__item 지역: #{item}
+                .content-boxCategory
+                    each item in content.orga
+                        span.content-boxCategory__item 분류: #{item}
+                .content-boxRating
+                    if content.rating === 1
+                        span *
+                    else if content.rating === 2
+                        span **
+                    else if content.rating === 3
+                        span ***
+                    else if content.rating === 4
+                        span ****
+                    else if content.rating === 5
+                        span *****

@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const ContentSchema = new mongoose.Schema({
-  /*fileUrl: {
+  fileUrl: {
     type: String,
     required: "File URL is required"
-  },*/
+  },
   name: {
     type: String,
     required: "Name is required"

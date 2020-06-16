@@ -6,6 +6,7 @@ block maincontent
     .main__content
         each content in contents
             .content-box
+                img(src=content.fileUrl alt="My Image" width="100" height="100")
                 .content-boxName=content.name
                 .content-boxDate 신청기간: #{content.startDate} ~ #{content.expiredDate}
                 .content-boxAge 연령 #{content.minage}세 ~ #{content.maxage}세

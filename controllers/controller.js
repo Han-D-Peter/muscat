@@ -28,11 +28,12 @@ export const postUpload = async (req, res) => {
       where,
       orga,
       rating
-    } /*,
-    file: { path }*/
+    },
+    file: { path }
   } = req;
+  console.log(req.file);
   const newContent = await Content.create({
-    //fileUrl: path,
+    fileUrl: path,
     name,
     url,
     tags,

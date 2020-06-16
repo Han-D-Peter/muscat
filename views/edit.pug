@@ -4,7 +4,7 @@ block maincontent
     .form-container
         form(action=`/edit/write`, method="post", enctype="multipart/form-data")
             label(for="file") Image File
-            input(type="file", id="file", name="imageFile", required=true, accpt="image/*")
+            input(type="file", id="file", name="imageFile", required=true, accpt="images/*")
             input(type="text", placeholder="제목", name="name", required=true)
             input(type="text", placeholder="사이트 주소", name="url", required=true)
             input(type="text", placeholder="태그", name="tags", required=true)

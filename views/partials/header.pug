@@ -4,13 +4,22 @@ header.header
             i.fas.fa-bars
         .header__head-searchBar
             input(type="text" class="searchBar")
-        .header__floatingBox
-            .header__floatingBox-xscroll
-                .flatingBox 1
-                .flatingBox 2
-                .flatingBox 3
-                .flatingBox 4
-                .flatingBox 5
-                .flatingBox 6
-                .flatingBox 7
-                .flatingBox 8
+        .header__head-login
+            if !user
+                li
+                    a(href="/join") Join
+                li
+                    a(href="/login") Log In
+            else
+                li
+                    a(href="/logout") Log Out
+    .header__floatingBox
+        .header__floatingBox-xscroll
+            .flatingBox 1
+            .flatingBox 2
+            .flatingBox 3
+            .flatingBox 4
+            .flatingBox 5
+            .flatingBox 6
+            .flatingBox 7
+            .flatingBox 8

@@ -1,0 +1,51 @@
+//extends layouts/main.pug
+
+//block maincontent
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width", initial-scale="1.0") 
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        script(src="https://kit.fontawesome.com/3c72e91e44.js"
+      crossorigin="anonymous")
+        title Muscat
+    body
+        .main
+            .main__detail
+                .main__detail-rating
+                    if contentElement.rating === 1
+                        span *
+                    else if contentElement.rating === 2
+                        span **
+                    else if contentElement.rating === 3
+                        span ***
+                    else if contentElement.rating === 4
+                        span ****
+                    else if contentElement.rating === 5
+                        span *****
+                .main__detail-name
+                    span.detail__name=contentElement.name
+                    span.detail__endDate ~#{contentElement.expiredDate}
+                .main__detail-tags
+                    each item in contentElement.tags
+                        span.detail__tags ##{item} 
+                .main__detail-category
+                    span.detail__categoryComment 교육분류:
+                    each item in contentElement.category
+                        span.detail__category=item
+                .main__detail-range
+                    span.detail__rangeComment 대상:
+                    each item in contentElement.range
+                        span.detail__range=item
+                .main__detail-orga
+                    span.detail_orgaComment 기관:
+                    each item in contentElement.orga
+                        span.detail__orga=item
+                .main__detail-url
+                    a(href=contentElement.url)
+                        span.detail__url 바로가기
+                    span.detail__call=contentElement.callNumber
+            .main__image
+                img(src="/"+contentElement.fileUrl alt="My Image" width="350" height="480")

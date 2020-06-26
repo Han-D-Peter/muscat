@@ -19,21 +19,63 @@ const ContentSchema = new mongoose.Schema({
     required: "Callnumber is required"
   },
   startDate: {
-    type: Date,
-    required: "Starting date is required"
+    startyear: {
+      type: Number,
+      required: "year is required"
+    },
+    startmonth: {
+      type: Number,
+      required: "month is required"
+    },
+    startday: {
+      type: Number,
+      required: "day is required"
+    }
   },
   expiredDate: {
-    type: Date,
-    required: "Expired date is required"
+    expiredyear: {
+      type: Number,
+      required: "year is required"
+    },
+    expiredmonth: {
+      type: Number,
+      required: "month is required"
+    },
+    expiredday: {
+      type: Number,
+      required: "day is required"
+    }
   },
   minage: Number,
   maxage: Number,
-  category: [
-    {
-      type: String,
-      required: "Category is required"
-    }
-  ],
+  jobsupport: {
+    type: String,
+    required: "jobsupport is required"
+  },
+  incruitSite: {
+    type: String,
+    required: "required"
+  },
+  staysupport: {
+    type: String,
+    required: "required"
+  },
+  economysupport: {
+    type: String,
+    required: "required"
+  },
+  startupsupport: {
+    type: String,
+    required: "required"
+  },
+  scholarship: {
+    type: String,
+    required: "required"
+  },
+  eduprogram: {
+    type: String,
+    required: "required"
+  },
   range: [
     {
       type: String,
@@ -43,9 +85,7 @@ const ContentSchema = new mongoose.Schema({
   where: [String],
   orga: [String],
   rating: {
-    type: Number,
-    max: 5,
-    index: true
+    type: String
   }
 });
 

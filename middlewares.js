@@ -2,11 +2,8 @@ import multer from "multer";
 
 const multerImage = multer({ dest: "uploads/images/" });
 
-export const uploadImage = multerImage.single("imageFile");
-
 export const localsMiddleware = (req, res, next) => {
   res.locals.user = req.user || null;
-  console.log(req.user);
   next();
 };
 
@@ -25,3 +22,5 @@ export const onlyPrivate = (req, res, next) => {
     res.redirect("/");
   }
 };
+
+export const uploadImage = multerImage.single("imageFile");

@@ -4,27 +4,23 @@ block maincontent
     .main__title
         .main__title-text Content List
     .main__content
-        each content in contents
-            a(href="detail/"+content.id)
-                .content-box
-                    img(src=content.fileUrl alt="My Image" width="100" height="100")
-                    .content-boxName=content.name
-                    .content-boxDate 신청기간: #{content.startDate} ~ #{content.expiredDate}
-                    .content-boxAge 연령 #{content.minage}세 ~ #{content.maxage}세
-                    .content-boxWhere
-                        each item in content.where
-                            span.content-boxWhere__item 지역: #{item}
-                    .content-boxCategory
-                        each item in content.orga
-                            span.content-boxCategory__item 분류: #{item}
-                    .content-boxRating
-                        if content.rating === 1
-                            span *
-                        else if content.rating === 2
-                            span **
-                        else if content.rating === 3
-                            span ***
-                        else if content.rating === 4
-                            span ****
-                        else if content.rating === 5
-                            span *****
+        .main__content-grid
+            each content in contents
+                a(href="detail/"+content.id)
+                    .content-box
+                        .content-boxImg
+                            img(src=content.fileUrl alt="My Image" width="200" height="200")
+                        .content-boxName=content.name
+                        .content-boxDate 신청기간: #{content.startDate.startyear}-#{content.startDate.startmonth}-#{content.startDate.startday} ~ #{content.expiredDate.expiredyear}-#{content.expiredDate.expiredmonth}-#{content.expiredDate.expiredday}
+                      
+                        .content-boxRating
+                            if content.rating === "1"
+                                span *
+                            else if content.rating === "2"
+                                span **
+                            else if content.rating === "3"
+                                span ***
+                            else if content.rating === "4"
+                                span ****
+                            else if content.rating === "5"
+                                span *****

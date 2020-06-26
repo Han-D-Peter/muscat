@@ -1,0 +1,22 @@
+body {
+  background-color: red;
+}
+
+.main__content {
+  display: flex;
+  justify-content: center;
+  .main__content-grid {
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: auto;
+    .content-box {
+      height: 350px;
+      width: 200px;
+      margin-left: 20px;
+      margin-right: 20px;
+      background: rgb(218,0,0);
+      background: linear-gradient(0deg, rgba(218,0,0,1) 40%, rgba(255,255,255,0) 100%);
+      );
+    }
+  }
+}

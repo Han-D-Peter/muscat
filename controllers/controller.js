@@ -68,7 +68,13 @@ export const postUpload = async (req, res) => {
       expiredDate,
       minage,
       maxage,
-      category,
+      jobsupport,
+      incruitSite,
+      staysupport,
+      economysupport,
+      startupsupport,
+      scholarship,
+      eduprogram,
       range,
       where,
       orga,
@@ -77,17 +83,42 @@ export const postUpload = async (req, res) => {
     file: { path }
   } = req;
 
+  const startDateFromString = new Date(startDate);
+  const expiredDateFromString = new Date(expiredDate);
+
+  const startyear = startDateFromString.getFullYear();
+  const startmonth = startDateFromString.getMonth() + 1;
+  const startday = startDateFromString.getDate();
+
+  const expiredyear = expiredDateFromString.getFullYear();
+  const expiredmonth = expiredDateFromString.getMonth() + 1;
+  const expiredday = expiredDateFromString.getDate();
+
   const newContent = await Content.create({
     fileUrl: path,
     name,
     url,
     tags,
     callNumber,
-    startDate,
-    expiredDate,
+    startDate: {
+      startyear,
+      startmonth,
+      startday
+    },
+    expiredDate: {
+      expiredyear,
+      expiredmonth,
+      expiredday
+    },
     minage,
     maxage,
-    category,
+    jobsupport,
+    incruitSite,
+    staysupport,
+    economysupport,
+    startupsupport,
+    scholarship,
+    eduprogram,
     range,
     where,
     orga,

@@ -85,7 +85,7 @@ const ContentSchema = new mongoose.Schema({
   where: [String],
   orga: [String],
   rating: {
-    type: String
+    type: Number
   }
 });
 

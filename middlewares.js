@@ -1,9 +1,15 @@
 import multer from "multer";
+import Content from "./models/Content";
 
 const multerImage = multer({ dest: "uploads/images/" });
 
-export const localsMiddleware = (req, res, next) => {
+export const localsMiddleware = async (req, res, next) => {
+  const topFive = await Content.find({});
+  const topFiveSort = topFive.sort(function(a, b) {
+    return a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0;
+  });
   res.locals.user = req.user || null;
+  res.locals.topFiveList = topFiveSort.slice(0, 5);
   next();
 };
 

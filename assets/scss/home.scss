@@ -1,5 +1,10 @@
-body {
-  background-color: red;
+.main__title {
+  display: flex;
+  justify-content: center;
+  margin-right: 780px;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .main__content {
@@ -7,16 +12,38 @@ body {
   justify-content: center;
   .main__content-grid {
     display: grid;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-columns: 220px 220px 220px 220px;
     grid-template-rows: auto;
     .content-box {
-      height: 350px;
+      border: 1px solid rgb(211, 206, 206);
+      height: 300px;
       width: 200px;
-      margin-left: 20px;
-      margin-right: 20px;
-      background: rgb(218,0,0);
-      background: linear-gradient(0deg, rgba(218,0,0,1) 40%, rgba(255,255,255,0) 100%);
-      );
+      margin-top: 20px;
+      margin-left: 1px;
+      margin-right: 1px;
+      .content-boxName,
+      .content-boxDate,
+      .content-boxRating {
+        margin-left: 10px;
+        position: relative;
+        color: black;
+        z-index: 2;
+      }
+      .content-boxName {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      .content-boxDate {
+        font-size: 12px;
+      }
+      .content-boxRating {
+        margin-top: 20px;
+        font-size: 12px;
+      }
     }
   }
+}
+
+.ratingStar {
+  color: #b5cd1f;
 }

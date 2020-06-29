@@ -1,0 +1,87 @@
+.header__head {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .header__head-menu {
+    font-size: 30px;
+  }
+  .header__head-title {
+    font-size: 40px;
+    margin-right: 350px;
+  }
+  .header__head-function {
+    display: flex;
+    align-items: center;
+    margin-right: 260px;
+  }
+}
+
+.searchBar {
+  width: 100px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background-color: #fcfcfc;
+  padding: 0px 20px;
+  border: 2px solid black;
+  box-shadow: 0 30px 60px -12px rgba(70, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  &:hover {
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+    animation: float 3s linear infinite forwards;
+  }
+}
+
+.header__head-searchBar {
+  font-size: 15px;
+}
+
+.header__floatingBox {
+  margin-top: 40px;
+  height: 350px;
+  .header__floatingBox-topten {
+    display: flex;
+    justify-content: center;
+    margin-right: 850px;
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .header__floatingBox-xscroll {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.floatingBox {
+  border: 1px solid rgb(211, 206, 206);
+  height: 220px;
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  .floatingBox__boxName,
+  .floatingBox__boxDate,
+  .floatingBox__boxRating {
+    margin-left: 10px;
+    position: relative;
+    color: black;
+    z-index: 2;
+  }
+  .floatingBox__boxName {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .floatingBox__boxDate {
+    font-size: 12px;
+  }
+  .floatingBox__boxRating {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+}

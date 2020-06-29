@@ -1,25 +1,70 @@
 header.header
     .header__head
+        .header__head-function
+            //-.header__head-searchBar
+                //-input(type="text" class="searchBar" placeholder="검색")
+                //-span.searchBar-magni
+                    <i class="fas fa-search"></i>
+            .header__head-login
+                if !user
+                    span
+                        a(href="/join") Join
+                    span
+                        a(href="/login") Log In
+                else
+                    span
+                        a(href="/logout") Log Out
+        
+        .header__head-title
+            span.head-name 청포도
         .header__head-menu
             i.fas.fa-bars
-        .header__head-searchBar
-            input(type="text" class="searchBar")
-        .header__head-login
-            if !user
-                li
-                    a(href="/join") Join
-                li
-                    a(href="/login") Log In
-            else
-                li
-                    a(href="/logout") Log Out
+        
     .header__floatingBox
+        .header__floatingBox-topten
+            span.toptem-text 탑5
         .header__floatingBox-xscroll
-            .flatingBox 1
-            .flatingBox 2
-            .flatingBox 3
-            .flatingBox 4
-            .flatingBox 5
-            .flatingBox 6
-            .flatingBox 7
-            .flatingBox 8
+                each item in topFiveList
+                    .floatingBox
+                        .floatingBox__img
+                            img(src=item.fileUrl alt="My Image" width="150" height="150")
+                        .floatingBox__boxName=item.name
+                        .floatingBox__boxDate 신청기간: #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
+
+                        .floatingBox__boxRating
+                            if item.rating === "1"
+                                span.ratingStar
+                                    <i class="fas fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                            else if item.rating === "2"
+                                span.ratingStar
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                            else if item.rating === "3"
+                                span.ratingStar
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                            else if item.rating === "4"
+                                span.ratingStar
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="far fa-circle"></i>
+                            else if item.rating === "5"
+                                span.ratingStar
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+                                    <i class="fas fa-circle"></i>
+        

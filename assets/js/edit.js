@@ -2,7 +2,7 @@
 const nameinput = document.getElementById("nameinput");
 const urlinput = document.getElementById("urlinput");
 const tagsinput = document.getElementById("tagsinput");
-const numberinput = document.getElementById("numberinput");
+const outlineinput = document.getElementById("outlineinput");
 //input box(객관식)
 const jobsupportinput = document.getElementById("jobsupportinput");
 const siteinput = document.getElementById("siteinput");
@@ -73,7 +73,7 @@ const ratingClick = e => {
   ratinginput.value = message;
 };
 
-const init = () => {
+function init() {
   jobsupportSelection.addEventListener("click", jobsupportClick);
   siteSelection.addEventListener("click", siteClick);
   staySelection.addEventListener("click", stayClick);
@@ -83,6 +83,6 @@ const init = () => {
   eduSelection.addEventListener("click", eduClick);
   rangeSelection.addEventListener("click", rangeClick);
   ratingSelection.addEventListener("click", ratingClick);
-};
+}
 
 init();

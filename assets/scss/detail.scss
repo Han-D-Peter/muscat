@@ -1,0 +1,80 @@
+.detail__box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @font-face {
+    font-family: "BMHANNAAir";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  .detail__header {
+    padding-top: 60px;
+    display: flex;
+    width: 722px;
+    height: 65px;
+    background-color: #d3d3d3;
+    .detail__header-backpage {
+      font-size: 35px;
+      font-weight: 400;
+      margin-left: 35px;
+    }
+    .detail__header-name {
+      font-size: 35px;
+      margin-left: 30px;
+    }
+  }
+  .detail__middle {
+    width: 722px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    .detail__middle-img {
+      box-shadow: 6px 10px 41px -8px rgba(0, 0, 0, 0.75);
+    }
+    .detail__middle-comment {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      margin-left: 25px;
+      .middle-comment-name {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      .middle-comment-rating {
+        color: #b5cd1f;
+        font-size: 15px;
+        margin-left: 6px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .detail__main {
+    width: 722px;
+    .detail__main-range,
+    .detail__main-date,
+    .detail__main-outline,
+    .detail__main-evaluation,
+    .detail__main-url {
+      margin-bottom: 30px;
+      .main-range-subject,
+      .main-date-subject,
+      .main-outline-subject,
+      .main-evaluation-subject,
+      .main-url-subject {
+        font-size: 30px;
+      }
+      .main-range-text,
+      .main-range-text,
+      .main-outline-text,
+      .main-evaluation-text,
+      .main-url-text {
+        font-size: 22px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

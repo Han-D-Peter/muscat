@@ -1,5 +1,20 @@
+@font-face {
+  font-family: "BMHANNAAir";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "reset.scss";
 @import "config/_variables.scss";
 @import "edit.scss";
+@import "detail.scss";
 @import "home.scss";
 @import "header.scss";
+
+body {
+  font-family: "BMHANNAAir";
+  font-weight: normal;
+  font-style: normal;
+}

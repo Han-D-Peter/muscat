@@ -11,7 +11,11 @@ block maincontent
                         .content-boxImg
                             img(src=content.fileUrl alt="My Image" width="200" height="200")
                         .content-boxName=content.name
-                        .content-boxDate 신청기간: #{content.startDate.startyear}-#{content.startDate.startmonth}-#{content.startDate.startday} ~ #{content.expiredDate.expiredyear}-#{content.expiredDate.expiredmonth}-#{content.expiredDate.expiredday}
+                        .content-boxDate 신청기간:
+                            if content.startDate.everyday === true
+                                span 상시
+                            else
+                                span #{content.startDate.startyear}-#{content.startDate.startmonth}-#{content.startDate.startday} ~ #{content.expiredDate.expiredyear}-#{content.expiredDate.expiredmonth}-#{content.expiredDate.expiredday}
                       
                         .content-boxRating
                             if content.rating === "1"

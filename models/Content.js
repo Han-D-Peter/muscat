@@ -14,38 +14,30 @@ const ContentSchema = new mongoose.Schema({
     required: "URL is required"
   },
   tags: [String],
-  callNumber: {
-    type: Number,
-    required: "Callnumber is required"
-  },
   startDate: {
+    everyday: Boolean,
     startyear: {
-      type: Number,
-      required: "year is required"
+      type: Number
     },
     startmonth: {
-      type: Number,
-      required: "month is required"
+      type: Number
     },
     startday: {
-      type: Number,
-      required: "day is required"
+      type: Number
     }
   },
   expiredDate: {
     expiredyear: {
-      type: Number,
-      required: "year is required"
+      type: Number
     },
     expiredmonth: {
-      type: Number,
-      required: "month is required"
+      type: Number
     },
     expiredday: {
-      type: Number,
-      required: "day is required"
+      type: Number
     }
   },
+  outline: String,
   minage: Number,
   maxage: Number,
   jobsupport: {
@@ -86,7 +78,8 @@ const ContentSchema = new mongoose.Schema({
   orga: [String],
   rating: {
     type: Number
-  }
+  },
+  evaluation: String
 });
 
 const model = mongoose.model("Content", ContentSchema);

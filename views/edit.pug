@@ -21,10 +21,10 @@ block maincontent
                     .formWrite__tags-comment 태그
                     .formWrite__tags-input
                         input(id="tagsinput",type="text", placeholder="태그", name="tags")
-                .formWrite__number
-                    .formWrite__number 전화번호
-                    .formWrite__number-input
-                        input(id="numberinput",type="number", placeholder="전화번호", name="callNumber")
+                .formWrite__outline
+                    .formWrite__outline 개요
+                    .formWrite__outline-input
+                        textarea(id="outlineinput",type="number", placeholder="개요", name="outline", cols="60", rows="20")
                 .formWrite__date
                     .formWrite__date-comment 접수기간
                     .formWrite__date-input
@@ -125,6 +125,10 @@ block maincontent
                         .rating-selection 3
                         .rating-selection 4
                         .rating-selection 5
+                .formSelect__evaluation
+                    .formSelect__evaluation-comment 평가
+                    .formSelect__evaluation-input
+                        textarea(id="evaluationinput",type="textarea", placeholder="중요도", name="evaluation",  value="없음", cols="60", rows="20")
             .formSelect__submit
                 .formSelect__submit-comment 제출하려면 버튼을 누르세요
                 .formSelect__submit-input

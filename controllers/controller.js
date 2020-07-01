@@ -63,9 +63,9 @@ export const postUpload = async (req, res) => {
       name,
       url,
       tags,
-      callNumber,
       startDate,
       expiredDate,
+      outline,
       minage,
       maxage,
       jobsupport,
@@ -78,29 +78,44 @@ export const postUpload = async (req, res) => {
       range,
       where,
       orga,
-      rating
+      rating,
+      evaluation
     },
     file: { path }
   } = req;
-
+  const tagsArr = tags.split(",");
+  const startDateLength = startDate.length;
+  console.log(startDateLength);
   const startDateFromString = new Date(startDate);
   const expiredDateFromString = new Date(expiredDate);
+  if (startDateLength === 0) {
+    var everyday = true;
+    var startyear = 0;
+    var startmonth = 0;
+    var startday = 0;
+  } else {
+    var startyear = startDateFromString.getFullYear();
+    var startmonth = startDateFromString.getMonth() + 1;
+    var startday = startDateFromString.getDate();
+  }
+  if (expiredDate.length !== 0) {
+    var expiredyear = expiredDateFromString.getFullYear();
+    var expiredmonth = expiredDateFromString.getMonth() + 1;
+    var expiredday = expiredDateFromString.getDate();
+  } else {
+    var expiredyear = 0;
+    var expiredmonth = 0;
+    var expiredday = 0;
+  }
 
-  const startyear = startDateFromString.getFullYear();
-  const startmonth = startDateFromString.getMonth() + 1;
-  const startday = startDateFromString.getDate();
-
-  const expiredyear = expiredDateFromString.getFullYear();
-  const expiredmonth = expiredDateFromString.getMonth() + 1;
-  const expiredday = expiredDateFromString.getDate();
-
+  console.log(everyday);
   const newContent = await Content.create({
     fileUrl: path,
     name,
     url,
-    tags,
-    callNumber,
+    tags: tagsArr,
     startDate: {
+      everyday,
       startyear,
       startmonth,
       startday
@@ -110,6 +125,7 @@ export const postUpload = async (req, res) => {
       expiredmonth,
       expiredday
     },
+    outline,
     minage,
     maxage,
     jobsupport,
@@ -122,7 +138,8 @@ export const postUpload = async (req, res) => {
     range,
     where,
     orga,
-    rating
+    rating,
+    evaluation
   });
   res.redirect("/");
 };
@@ -134,6 +151,7 @@ export const detail = async (req, res) => {
   try {
     const contentElement = await Content.findById(id);
     res.render("detail", { contentElement });
+    console.log(contentElement);
   } catch (error) {
     res.redirect("/");
   }

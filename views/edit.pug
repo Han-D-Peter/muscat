@@ -1,137 +1,165 @@
-extends layouts/main.pug
-
-block maincontent
-    .edit__form
-        form(action="/edit/write", method="POST", enctype="multipart/form-data")
-            .edit__formWrite
-                .formWrite__pic
-                    .formWrite__pic-comment 포스터
-                    .formWrite__pic-input
-                        label(for="file") Image File
-                        input(type="file", id="file", name="imageFile", accept="images/*")
-                .formWrite__name
-                    .formWrite__name-comment 제목
-                    .formWrite__name-input
-                        input(id="nameinput", type="text", placeholder="제목", name="name")
-                .formWrite__url
-                    .formWrite__url-comment 사이트 주소
-                    .formWrite__url-input
-                        input(id="urlinput",type="url", placeholder="사이트 주소", name="url")
-                .formWrite__tags
-                    .formWrite__tags-comment 태그
-                    .formWrite__tags-input
-                        input(id="tagsinput",type="text", placeholder="태그", name="tags")
-                .formWrite__outline
-                    .formWrite__outline 개요
-                    .formWrite__outline-input
-                        textarea(id="outlineinput",type="number", placeholder="개요", name="outline", cols="60", rows="20")
-                .formWrite__date
-                    .formWrite__date-comment 접수기간
-                    .formWrite__date-input
-                        input(type="date", name="startDate")
-                        input(type="date", name="expiredDate")
-                .formWrite__age
-                    .formWrite__age-comment 지원가능 나이
-                    .formWrite__age-input
-                        input(type="number", placeholder="최소나이", name="minage")
-                        span 부터
-                        input(type="number", placeholder="최대나이", name="maxage")
-                        span 까지
-            .edit__formSelect
-                .formSelect__jobsupport
-                    .formSelect__jobsupport-comment 취업지원
-                    .formSelect__jobsupport-input
-                        input(id="jobsupportinput",type="text", placeholder="취업지원", name="jobsupport", value="없음")
-                    .formSelect__jobsupport-selection
-                        .jobsupport-selection 있음
-                        .jobsupport-selection 없음
-                .formSelect__site
-                    .formSelect__site-comment 채용사이트
-                    .formSelect__site-input
-                        input(id="siteinput",type="text", placeholder="채용사이트", name="incruitSite", value="없음")
-                    .formSelect__site-selection
-                        .site-selection 대기업
-                        .site-selection 스타트업
-                        .site-selection 외국계
-                        .site-selection 직무별
-                        .site-selection 없음
-                .formSelect__stay
-                    .formSelect__stay-comment 주거지원
-                    .formSelect__stay-input
-                        input(id="stayinput",type="text", placeholder="주거지원", name="staysupport", value="없음")
-                    .formSelect__stay-selection
-                        .stay-selection 있음
-                        .stay-selection 없음
-                .formSelect__economy
-                    .formSelect__economy-comment 경제적지원
-                    .formSelect__economy-input
-                        input(id="economyinput",type="text", placeholder="경제적지원", name="economysupport", value="없음")
-                    .formSelect__economy-selection
-                        .economy-selection 은행권
-                        .economy-selection 정부지원
-                        .economy-selection 없음
-                .formSelect__startup
-                    .formSelect__startup-comment 창업지원
-                    .formSelect__startup-input
-                        input(id="startupinput",type="text", placeholder="창업지원", name="startupsupport", value="없음")
-                    .formSelect__startup-selection
-                        .startup-selection 교육지원
-                        .startup-selection 공간지원
-                        .startup-selection 인건비지원
-                        .startup-selection 마케팅지원
-                        .startup-selection 없음
-                .formSelect__scholar
-                    .formSelect__scholar-comment 장학금
-                    .formSelect__scholar-input
-                        input(id="scholarinput",type="text", placeholder="장학금", name="scholarship", value="없음")
-                    .formSelect__scholar-selection
-                        .scholar-selection 민간
-                        .scholar-selection 재단
-                        .scholar-selection 지자체
-                        .scholar-selection 없음
-                .formSelect__edu
-                    .formSelect__edu-comment 교육프로그램
-                    .formSelect__edu-input
-                        input(id="eduinput",type="text", placeholder="교육프로그램", name="eduprogram", value="없음")
-                    .formSelect__edu-selection
-                        .edu-selection 온라인
-                        .edu-selection 오브라인
-                        .edu-selection 없음
-                .formSelect__range
-                    .formSelect__range-comment 신분
-                    .formSelect__range-input
-                        input(id="rangeinput",type="text", placeholder="신분", name="range", value="없음")
-                    .formSelect__range-selection
-                        .range-selection 학생
-                        .range-selection 직장인
-                        .range-selection 없음
-                .formSelect__where
-                    .formSelect__where-comment 지역
-                    .formSelect__where-input
-                        input(id="whereinput",type="text", placeholder="지역", name="where",  value="없음")
-                    .formSelect__where-selection
-                .formSelect__orga
-                    .formSelect__orga-comment 기관분류
-                    .formSelect__orga-input
-                        input(id="orgainput",type="text", placeholder="기관분류", name="orga",  value="없음")
-                    .formSelect__orga-selection
-                .formSelect__rating
-                    .formSelect__rating-comment 중요도
-                    .formSelect__rating-input
-                        input(id="ratinginput",type="number", placeholder="중요도", name="rating",  value="없음")
-                    .formSelect__rating-selection
-                        .rating-selection 1
-                        .rating-selection 2
-                        .rating-selection 3
-                        .rating-selection 4
-                        .rating-selection 5
-                .formSelect__evaluation
-                    .formSelect__evaluation-comment 평가
-                    .formSelect__evaluation-input
-                        textarea(id="evaluationinput",type="textarea", placeholder="중요도", name="evaluation",  value="없음", cols="60", rows="20")
-            .formSelect__submit
-                .formSelect__submit-comment 제출하려면 버튼을 누르세요
-                .formSelect__submit-input
-                    input(type="submit", value="Upload Image")
-    
-                    
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width", initial-scale="1.0") 
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        script(src="https://kit.fontawesome.com/3c72e91e44.js"
+      crossorigin="anonymous")
+        link(rel="stylesheet", href="/static/styles.css")
+        title Muscat - Edit
+    body
+        .edit__form
+            form(action="/edit/write", method="POST", enctype="multipart/form-data")
+                .edit__formWrite
+                    .formWrite__pic
+                        .formWrite__pic-comment 포스터:
+                        .formWrite__pic-input
+                            label(for="file") Image File
+                            input(type="file", id="file", name="imageFile", accept="images/*")
+                    <hr>
+                    .formWrite__name
+                        .formWrite__name-comment 제목:
+                        .formWrite__name-input
+                            input(id="nameinput", type="text", placeholder="제목", name="name")
+                    <hr>
+                    .formWrite__url
+                        .formWrite__url-comment 사이트 주소:
+                        .formWrite__url-input
+                            input(id="urlinput",type="url", placeholder="사이트 주소", name="url")
+                    <hr>
+                    .formWrite__tags
+                        .formWrite__tags-comment 태그:
+                        .formWrite__tags-input
+                            input(id="tagsinput",type="text", placeholder="태그 쉼표(,)로 구분해 작성해주세요", name="tags")
+                    <hr>
+                    .formWrite__outline
+                        .formWrite__outline-comment 개요:
+                        .formWrite__outline-input
+                            textarea(id="outlineinput", type="number", placeholder="개요", name="outline", cols="60", rows="15")
+                    <hr>
+                    .formWrite__date
+                        .formWrite__date-comment 접수기간:
+                        .formWrite__date-input
+                            input(type="date", name="startDate")
+                            span ~
+                            input(type="date", name="expiredDate")
+                    <hr>
+                    .formWrite__age
+                        .formWrite__age-comment 지원가능 나이:
+                        .formWrite__age-input
+                            input(id="ageinputmin", type="number", placeholder="최소나이", name="minage")
+                            span 부터 ~
+                            input(id="ageinputmax", type="number", placeholder="최대나이", name="maxage")
+                            span 까지
+                .edit__formSelect
+                    <hr>
+                    .formSelect__jobsupport
+                        .formSelect__jobsupport-comment 취업지원:
+                        .formSelect__jobsupport-selection
+                            .jobsupport-selection 있음
+                            .jobsupport-selection 없음
+                        .formSelect__jobsupport-input
+                            input(id="jobsupportinput",type="text", placeholder="취업지원", name="jobsupport", value="없음")
+                    <hr>
+                    .formSelect__site
+                        .formSelect__site-comment 채용사이트:
+                        .formSelect__site-selection
+                            .site-selection 대기업
+                            .site-selection 스타트업
+                            .site-selection 외국계
+                            .site-selection 직무별
+                            .site-selection 없음
+                        .formSelect__site-input
+                            input(id="siteinput",type="text", placeholder="채용사이트", name="incruitSite", value="없음")
+                    <hr>
+                    .formSelect__stay
+                        .formSelect__stay-comment 주거지원:
+                        .formSelect__stay-selection
+                            .stay-selection 있음
+                            .stay-selection 없음
+                        .formSelect__stay-input
+                            input(id="stayinput",type="text", placeholder="주거지원", name="staysupport", value="없음")
+                    <hr>
+                    .formSelect__economy
+                        .formSelect__economy-comment 경제적지원:
+                        .formSelect__economy-selection
+                            .economy-selection 은행권
+                            .economy-selection 정부지원
+                            .economy-selection 없음
+                        .formSelect__economy-input
+                            input(id="economyinput",type="text", placeholder="경제적지원", name="economysupport", value="없음")
+                    <hr>
+                    .formSelect__startup
+                        .formSelect__startup-comment 창업지원:
+                        .formSelect__startup-selection
+                            .startup-selection 교육지원
+                            .startup-selection 공간지원
+                            .startup-selection 인건비지원
+                            .startup-selection 마케팅지원
+                            .startup-selection 없음
+                        .formSelect__startup-input
+                            input(id="startupinput",type="text", placeholder="창업지원", name="startupsupport", value="없음")
+                    <hr>
+                    .formSelect__scholar
+                        .formSelect__scholar-comment 장학금:
+                        .formSelect__scholar-selection
+                            .scholar-selection 민간
+                            .scholar-selection 재단
+                            .scholar-selection 지자체
+                            .scholar-selection 없음
+                        .formSelect__scholar-input
+                            input(id="scholarinput",type="text", placeholder="장학금", name="scholarship", value="없음")
+                    <hr>
+                    .formSelect__edu
+                        .formSelect__edu-comment 교육프로그램:
+                        .formSelect__edu-selection
+                            .edu-selection 온라인
+                            .edu-selection 오프라인
+                            .edu-selection 없음
+                        .formSelect__edu-input
+                            input(id="eduinput",type="text", placeholder="교육프로그램", name="eduprogram", value="없음")
+                    <hr>
+                    .formSelect__range
+                        .formSelect__range-comment 신분:
+                        .formSelect__range-selection
+                            .range-selection 학생
+                            .range-selection 직장인
+                            .range-selection 없음
+                        .formSelect__range-input
+                            input(id="rangeinput",type="text", placeholder="신분", name="range", value="없음")
+                    <hr>
+                    .formSelect__where
+                        .formSelect__where-comment 지역:
+                        .formSelect__where-input
+                            input(id="whereinput",type="text", placeholder="지역", name="where",  value="없음")
+                        .formSelect__where-selection
+                    <hr>
+                    .formSelect__orga
+                        .formSelect__orga-comment 기관분류:
+                        .formSelect__orga-input
+                            input(id="orgainput",type="text", placeholder="기관분류", name="orga",  value="없음")
+                        .formSelect__orga-selection
+                    <hr>
+                    .formSelect__rating
+                        .formSelect__rating-comment 중요도:
+                        .formSelect__rating-selection
+                            .rating-selection 1
+                            .rating-selection 2
+                            .rating-selection 3
+                            .rating-selection 4
+                            .rating-selection 5
+                        .formSelect__rating-input
+                            input(id="ratinginput",type="number", placeholder="중요도", name="rating",  value="없음")
+                    <hr>
+                    .formSelect__evaluation
+                        .formSelect__evaluation-comment 평가:
+                        .formSelect__evaluation-input
+                            textarea(id="evaluationinput",type="textarea", placeholder="중요도", name="evaluation",  value="없음", cols="60", rows="15")
+                .formSelect__submit
+                    .formSelect__submit-comment 제출하려면 버튼을 누르세요
+                    .formSelect__submit-input
+                        input(id="submitinput", type="submit", value="Upload Image")
+        script(src="/static/main.js")
+        
+                        

@@ -1,6 +1,13 @@
-@font-face {
+/*@font-face {
   font-family: "BMHANNAAir";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}*/
+@font-face {
+  font-family: "Katuri";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -12,9 +19,16 @@
 @import "detail.scss";
 @import "home.scss";
 @import "header.scss";
+@import "admin.scss";
+
+/*body {
+  font-family: "BMHANNAAir";
+  font-weight: normal;
+  font-style: normal;
+}*/
 
 body {
-  font-family: "BMHANNAAir";
+  font-family: "Katuri";
   font-weight: normal;
   font-style: normal;
 }

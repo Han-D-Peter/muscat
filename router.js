@@ -8,10 +8,10 @@ import {
   postJoin,
   getLogin,
   postLogin,
-  logout,
-  getAdmin
+  logout
 } from "./controllers/controller";
 import { uploadImage, onlyPublic, onlyPrivate } from "./middlewares";
+import { getAdmin } from "./controllers/admincontroller";
 
 export const userRouter = express.Router();
 
@@ -41,4 +41,4 @@ editRouter.get("/:id", (req, res) => res.send("id edit"));
 
 detailRouter.get("/:id", detail);
 
-adminRouter.get("/", getAdmin);
+adminRouter.get("/", onlyPrivate, getAdmin);

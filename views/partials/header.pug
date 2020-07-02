@@ -16,8 +16,9 @@ header.header#header
                         a(href="/logout") Log Out
         
         .header__head-title
-            span.head-name 청포도
-            img(src="images/muscatimg.png" alt="My Image" width="30" height="30")
+            a(href="/")
+                span.head-name 청포도
+                img(src="images/muscatimg.png" alt="My Image" width="30" height="30")
         .header__head-menu#head-menu
             i.fas.fa-bars
         
@@ -30,6 +31,34 @@ header.header#header
                         .floatingBox
                             .floatingBox__img
                                 img(src=item.fileUrl alt="My Image" width="150" height="150")
+                            .floatingBox__dday
+                                -var endDay = new Date(`${item.expiredDate.expiredyear}-${item.expiredDate.expiredmonth}-${item.expiredDate.expiredday}`)
+                                -var today = new Date();
+                                -var gap = endDay - today
+                                -var dday = Math.floor(gap/ (1000 * 60 * 60 * 24)) * -1 -1
+                                    if item.startDate.everyday === true
+                                        .floatingBox__dday-text
+                                            .floatingBox__dday-textSpan 상시
+                                    else if dday === 0
+                                        .floatingBox__dday-text
+                                            .floatingBox__dday-textSpan 오늘까지
+                                    else
+                                        .floatingBox__dday-text
+                                            .floatingBox__dday-textSpan D#{dday}
+            
+                            .floatingBox__tagBox
+                                .floatingBox__tags
+                                    -var n = 0;
+                                    -var length = item.tags.length;
+                                        if length < 3
+                                            while n < item.tags.length        
+                                                .floatingBox__tags-element
+                                                    span ##{item.tags[n++]}
+                                        else if length >= 3
+                                            while n < 2    
+                                                .floatingBox__tags-element
+                                                    span ##{item.tags[n++]}
+
                             .floatingBox__boxName=item.name
                             .floatingBox__boxDate 신청기간: #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
 

@@ -6,12 +6,13 @@
     .formWrite__tags,
     .formWrite__number,
     .formWrite__date,
-    .formWrite__age {
+    .formWrite__age,
+    .formWrite__outline {
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-items: center;
       margin-top: 30px;
+      margin-bottom: 30px;
     }
   }
   .edit__formSelect {
@@ -25,12 +26,27 @@
     .formSelect__range,
     .formSelect__where,
     .formSelect__orga,
-    .formSelect__rating {
+    .formSelect__rating,
+    .formSelect__evaluation {
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-items: center;
       margin-top: 30px;
+      margin-bottom: 40px;
+      .formSelect__jobsupport-input,
+      .formSelect__site-input,
+      .formSelect__stay-input,
+      .formSelect__economy-input,
+      .formSelect__startup-input,
+      .formSelect__scholar-input,
+      .formSelect__edu-input,
+      .formSelect__range-input,
+      .formSelect__where-input,
+      .formSelect__orga-input,
+      .formSelect__rating-input {
+        position: relative;
+        left: 100px;
+      }
     }
   }
 }
@@ -46,10 +62,10 @@
 .formSelect__where-selection,
 .formSelect__orga-selection,
 .formSelect__rating-selection {
+  position: relative;
   display: flex;
-  width: 600px;
-  justify-content: space-around;
-  margin-top: 30px;
+  width: 700px;
+  justify-content: flex-start;
   .jobsupport-selection,
   .site-selection,
   .stay-selection,
@@ -59,7 +75,9 @@
   .edu-selection,
   .range-selection,
   .rating-selection {
+    font-size: 25px;
     display: flex;
+    margin-right: 10px;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -68,6 +86,91 @@
     height: 40px;
     border-radius: 30px;
     border: 3px solid green;
-    box-shadow: 4px 5px 10px 2px gray;
+    box-shadow: 2px 2px 5px 2px gray;
+  }
+}
+
+.formWrite__pic-comment,
+.formWrite__name-comment,
+.formWrite__url-comment,
+.formWrite__tags-comment,
+.formWrite__outline-comment,
+.formWrite__date-comment,
+.formWrite__age-comment,
+.formSelect__jobsupport-comment,
+.formSelect__site-comment,
+.formSelect__stay-comment,
+.formSelect__economy-comment,
+.formSelect__startup-comment,
+.formSelect__scholar-comment,
+.formSelect__edu-comment,
+.formSelect__range-comment,
+.formSelect__where-comment,
+.formSelect__orga-comment,
+.formSelect__rating-comment,
+.formSelect__evaluation-comment {
+  width: 140px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#nameinput,
+#urlinput,
+#tagsinput,
+#whereinput,
+#orgainput {
+  font-size: 20px;
+  width: 500px;
+  height: 60px;
+  border: 1px solid grey;
+}
+
+#outlineinput,
+#evaluationinput {
+  font-size: 17px;
+}
+
+#jobsupportinput,
+#siteinput,
+#stayinput,
+#economyinput,
+#startupinput,
+#scholarinput,
+#eduinput,
+#rangeinput,
+#whereinput,
+#orgainput,
+#ratinginput {
+  font-size: 25px;
+}
+
+#ageinputmin,
+#ageinputmax {
+  font-size: 25px;
+  width: 130px;
+  height: 50px;
+  border: 1px solid grey;
+}
+
+#ageinputmax {
+  margin-left: 20px;
+}
+
+.formSelect__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .formSelect__submit-comment {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  .formSelect__submit-input {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 100px;
+    #submitinput {
+      width: 200px;
+      height: 60px;
+    }
   }
 }

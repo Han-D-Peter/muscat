@@ -1,0 +1,59 @@
+extends layouts/main.pug
+
+block maincontent
+    .admin__header
+        .admin__header-text
+            span.admin__header-span 게시글 목록
+    .admin__column
+        .admin__column-box
+            .admin__column-list 
+                .admin__column-listBox 제목
+            .admin__column-list 
+                .admin__column-listBox 태그
+            .admin__column-list 
+                .admin__column-listBox 기한
+            .admin__column-list 
+                .admin__column-listBox 개요
+            .admin__column-list 
+                .admin__column-listBox 대상자
+            .admin__column-list 
+                .admin__column-listBox 링크
+            .admin__column-list 
+                .admin__column-listBox 평가
+            .admin__column-list 
+                .admin__column-listBox 평점
+    <hr>
+    .admin__content
+        each item in contents
+            .admin__content-box
+                .admin__content-list
+                    .admin__content-listBox #{item.name}
+                .admin__content-list
+                    .admin__content-listBox 
+                        each tag in item.tags
+                            span.content-listBox-tag #{tag+"|"}
+                .admin__content-list
+                    .admin__content-listBox
+                        if item.startDate.everyday === true
+                                span 상시
+                        else
+                                span #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
+                .admin__content-list
+                    .admin__content-listBox #{item.outline}
+                .admin__content-list
+                    .admin__content-listBox #{item.range}
+                .admin__content-list
+                    .admin__content-listBox
+                        a(href=item.url)
+                            .admin-url-text 사이트 링크
+                .admin__content-list
+                    .admin__content-listBox #{item.evaluation}
+                .admin__content-list
+                    .admin__content-listBox #{item.rating}
+            <hr>
+
+    .admin__endText
+        .admin__endText-text 끝
+
+
+

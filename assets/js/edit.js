@@ -85,4 +85,6 @@ function init() {
   ratingSelection.addEventListener("click", ratingClick);
 }
 
-init();
+if (nameinput) {
+  init();
+}

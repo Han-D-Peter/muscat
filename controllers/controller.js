@@ -156,7 +156,3 @@ export const detail = async (req, res) => {
     res.redirect("/");
   }
 };
-
-export const getAdmin = (req, res) => {
-  res.send("adminpage");
-};

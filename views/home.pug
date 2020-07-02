@@ -10,6 +10,34 @@ block maincontent
                     .content-box
                         .content-boxImg
                             img(src=content.fileUrl alt="My Image" width="200" height="200")
+                        .content__boxDday
+                            -var endDay = new Date(`${content.expiredDate.expiredyear}-${content.expiredDate.expiredmonth}-${content.expiredDate.expiredday}`)
+                            -var today = new Date();
+                            -var gap = endDay - today
+                            -var dday = Math.floor(gap/ (1000 * 60 * 60 * 24)) * -1 -1
+                                if content.startDate.everyday === true
+                                    .content__boxDday-text
+                                        .content__boxDday-textSpan 상시
+                                else if dday === 0
+                                    .content__boxDday-text
+                                        .content__boxDday-textSpan 오늘까지
+                                else
+                                    .content__boxDday-text
+                                        .content__boxDday-textSpan D#{dday}
+
+                        .content__boxTagBox
+                                .content__boxTags
+                                    -var n = 0;
+                                    -var length = content.tags.length;
+                                        if length < 3
+                                            while n < content.tags.length        
+                                                .content__boxTags-element
+                                                    span ##{content.tags[n++]}
+                                        else if length >= 3
+                                            while n < 2    
+                                                .content__boxTags-element
+                                                    span ##{content.tags[n++]}
+
                         .content-boxName=content.name
                         .content-boxDate 신청기간:
                             if content.startDate.everyday === true

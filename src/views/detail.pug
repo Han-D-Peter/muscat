@@ -18,6 +18,16 @@ html
                     .detail__header-backpage#detail__backPage
                         <i class="fas fa-arrow-left"></i>
                     .detail__header-name=contentElement.name
+            .detail__function
+                if user
+                    span
+                        a(href="/logout") Log Out
+                    span
+                        a(href="/edit") ||글쓰기
+                    span
+                        a(href="/admin") ||어드민페이지
+                
+                    
 
             .detail__middle
                 .detail__middle-img

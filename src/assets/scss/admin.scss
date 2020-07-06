@@ -25,7 +25,8 @@
       height: 36px;
       text-align: center;
       .admin__column-listBox {
-        margin-top: 8px;
+        font-size: 25px;
+        margin-top: 2px;
       }
     }
   }
@@ -37,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   .admin__content-box {
-    margin-top: 30px;
+    margin-top: 15px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -50,7 +51,7 @@
       text-align: center;
       margin-bottom: 40px;
       .admin__content-listBox {
-        margin-top: 8px;
+        margin-top: 2px;
       }
     }
   }

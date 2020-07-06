@@ -54,8 +54,8 @@ header.header#header
                                 .floatingBox__tags
                                     -var n = 0;
                                     -var length = item.tags.tagsArr.length;
-                                        if length < 3
-                                            while n < item.tags.tagsArr.length        
+                                        if length <= 2
+                                            while n < (length)    
                                                 .floatingBox__tags-element
                                                     span ##{item.tags.tagsArr[n++]}
                                         else if length >= 3
@@ -64,7 +64,12 @@ header.header#header
                                                     span ##{item.tags.tagsArr[n++]}
 
                             .floatingBox__boxName=item.name
-                            .floatingBox__boxDate 신청기간: #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
+                            .floatingBox__boxDate 신청기간: 
+                                if item.startDate.everyday === true
+                                    span 상시
+                                else
+                                    span #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
+            
 
                             .floatingBox__boxRating
                                 if item.rating === "1"

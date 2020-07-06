@@ -19,14 +19,21 @@ const multerImage = multer({
 
 export const localsMiddleware = async (req, res, next) => {
   const topFive = await Content.find({
-    "expiredDate.rawExpiredDate": { $gte: new Date() }
+    $or: [
+      {
+        "expiredDate.rawExpiredDate": { $gte: new Date() }
+      },
+      { "startDate.everyday": true }
+    ]
   });
   /*const topFiveSort = topFive.sort(function(a, b) {
     return a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0;
   });
   res.locals.user = req.user || null;
   res.locals.topFiveList = topFiveSort.slice(0, 5);*/
-  const topFiveScoreSix = topFive.filter(item => item.rating === 6);
+
+  const topFiveScoreSix = topFive.filter(item => item.rating == 6);
+
   res.locals.user = req.user || null;
   res.locals.topFiveList = topFiveScoreSix.slice(0, 5);
   next();

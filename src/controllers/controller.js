@@ -13,7 +13,6 @@ export const handleHome = async (req, res) => {
         { "startDate.everyday": true }
       ]
     });
-    console.log(contents);
     res.render("home", { contents });
   } catch (error) {
     console.log(error);

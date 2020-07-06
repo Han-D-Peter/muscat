@@ -29,8 +29,8 @@ block maincontent
                                 .content__boxTags
                                     -var n = 0;
                                     -var length = content.tags.tagsArr.length;
-                                        if length < 3
-                                            while n < content.tags.length        
+                                        if length <= 2
+                                            while n < 2        
                                                 .content__boxTags-element
                                                     span ##{content.tags.tagsArr[n++]}
                                         else if length >= 3

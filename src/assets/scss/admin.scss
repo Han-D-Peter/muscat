@@ -18,9 +18,9 @@
   align-items: center;
   .admin__column-box {
     margin-top: 30px;
-    width: 2000px;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     .admin__column-list {
       height: 36px;
       text-align: center;
@@ -38,15 +38,14 @@
   align-items: center;
   .admin__content-box {
     margin-top: 30px;
-    width: 2000px;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     .admin__content-list {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 200px;
       height: auto;
       text-align: center;
       margin-bottom: 40px;
@@ -55,6 +54,37 @@
       }
     }
   }
+}
+
+.listBoxName {
+  width: 200px;
+}
+.listBoxTags {
+  width: 200px;
+}
+.listBoxExpired {
+  width: 150px;
+}
+.listBoxOutline {
+  width: 550px;
+}
+.listBoxRange {
+  width: 100px;
+}
+.listBoxLink {
+  width: 150px;
+}
+.listBoxEval {
+  width: 350px;
+}
+.listBoxRating {
+  width: 50px;
+}
+.listBoxUpdate {
+  width: 50px;
+}
+.listBoxDelete {
+  width: 50px;
 }
 
 hr {

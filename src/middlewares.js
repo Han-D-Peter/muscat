@@ -1,10 +1,26 @@
 import multer from "multer";
+import multerS3 from "multer-s3";
+import aws from "aws-sdk";
 import Content from "./models/Content";
 
-const multerImage = multer({ dest: "uploads/images/" });
+const s3 = new aws.S3({
+  accessKeyId: process.env.AWS_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
+  region: "ap-northeast-1"
+});
+
+const multerImage = multer({
+  storage: multerS3({
+    s3,
+    acl: "public-read",
+    bucket: "muscat/uploads"
+  })
+});
 
 export const localsMiddleware = async (req, res, next) => {
-  const topFive = await Content.find({});
+  const topFive = await Content.find({
+    "expiredDate.rawExpiredDate": { $gte: new Date() }
+  });
   const topFiveSort = topFive.sort(function(a, b) {
     return a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0;
   });

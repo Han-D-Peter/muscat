@@ -13,8 +13,14 @@ const ContentSchema = new mongoose.Schema({
     type: String,
     required: "URL is required"
   },
-  tags: [String],
+  tags: {
+    rawTags: {
+      type: String
+    },
+    tagsArr: [String]
+  },
   startDate: {
+    rawStartDate: Date,
     everyday: Boolean,
     startyear: {
       type: Number
@@ -27,6 +33,7 @@ const ContentSchema = new mongoose.Schema({
     }
   },
   expiredDate: {
+    rawExpiredDate: Date,
     expiredyear: {
       type: Number
     },
@@ -68,14 +75,12 @@ const ContentSchema = new mongoose.Schema({
     type: String,
     required: "required"
   },
-  range: [
-    {
-      type: String,
-      required: "Range is required"
-    }
-  ],
-  where: [String],
-  orga: [String],
+  range: {
+    type: String,
+    required: "Range is required"
+  },
+  where: String,
+  orga: String,
   rating: {
     type: Number
   },

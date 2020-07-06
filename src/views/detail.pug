@@ -63,14 +63,13 @@ html
                                     <i class="fas fa-circle"></i>
                                     <i class="fas fa-circle"></i>
                     .middle-comment-tags
-                        each item in contentElement.tags
+                        each item in contentElement.tags.tagsArr
                             span ##{item} 
 
             .detail__main
                 .detail__main-range 
                     span.main-range-subject 대상자
-                    each item in contentElement.range
-                        .main-range-text=item
+                        .main-range-text=contentElement.range
 
                 .detail__main-date
                     span.main-date-subject 기한

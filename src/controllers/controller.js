@@ -5,7 +5,9 @@ import dotenv from "dotenv";
 
 export const handleHome = async (req, res) => {
   try {
-    const contents = await Content.find({});
+    const contents = await Content.find({
+      "expiredDate.rawExpiredDate": { $gte: new Date() }
+    });
     res.render("home", { contents });
   } catch (error) {
     console.log(error);
@@ -81,11 +83,11 @@ export const postUpload = async (req, res) => {
       rating,
       evaluation
     },
-    file: { path }
+    file: { location }
   } = req;
   const tagsArr = tags.split(",");
   const startDateLength = startDate.length;
-  console.log(startDateLength);
+
   const startDateFromString = new Date(startDate);
   const expiredDateFromString = new Date(expiredDate);
   if (startDateLength === 0) {
@@ -108,19 +110,23 @@ export const postUpload = async (req, res) => {
     var expiredday = 0;
   }
 
-  console.log(everyday);
   const newContent = await Content.create({
-    fileUrl: path,
+    fileUrl: location,
     name,
     url,
-    tags: tagsArr,
+    tags: {
+      rawTags: tags,
+      tagsArr
+    },
     startDate: {
+      rawStartDate: startDate,
       everyday,
       startyear,
       startmonth,
       startday
     },
     expiredDate: {
+      rawExpiredDate: expiredDate,
       expiredyear,
       expiredmonth,
       expiredday
@@ -151,7 +157,6 @@ export const detail = async (req, res) => {
   try {
     const contentElement = await Content.findById(id);
     res.render("detail", { contentElement });
-    console.log(contentElement);
   } catch (error) {
     res.redirect("/");
   }

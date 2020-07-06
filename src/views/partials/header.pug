@@ -14,6 +14,10 @@ header.header#header
                 else
                     span
                         a(href="/logout") Log Out
+                    span
+                        a(href="/edit") ||글쓰기
+                    span
+                        a(href="/admin") ||어드민페이지
         
         .header__head-title
             a(href="/")
@@ -49,15 +53,15 @@ header.header#header
                             .floatingBox__tagBox
                                 .floatingBox__tags
                                     -var n = 0;
-                                    -var length = item.tags.length;
+                                    -var length = item.tags.tagsArr.length;
                                         if length < 3
-                                            while n < item.tags.length        
+                                            while n < item.tags.tagsArr.length        
                                                 .floatingBox__tags-element
-                                                    span ##{item.tags[n++]}
+                                                    span ##{item.tags.tagsArr[n++]}
                                         else if length >= 3
                                             while n < 2    
                                                 .floatingBox__tags-element
-                                                    span ##{item.tags[n++]}
+                                                    span ##{item.tags.tagsArr[n++]}
 
                             .floatingBox__boxName=item.name
                             .floatingBox__boxDate 신청기간: #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}

@@ -28,15 +28,15 @@ block maincontent
                         .content__boxTagBox
                                 .content__boxTags
                                     -var n = 0;
-                                    -var length = content.tags.length;
+                                    -var length = content.tags.tagsArr.length;
                                         if length < 3
                                             while n < content.tags.length        
                                                 .content__boxTags-element
-                                                    span ##{content.tags[n++]}
+                                                    span ##{content.tags.tagsArr[n++]}
                                         else if length >= 3
                                             while n < 2    
                                                 .content__boxTags-element
-                                                    span ##{content.tags[n++]}
+                                                    span ##{content.tags.tagsArr[n++]}
 
                         .content-boxName=content.name
                         .content-boxDate 신청기간:

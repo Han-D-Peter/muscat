@@ -6,7 +6,8 @@ import dotenv from "dotenv";
 export const handleHome = async (req, res) => {
   try {
     const contents = await Content.find({
-      "expiredDate.rawExpiredDate": { $gte: new Date() }
+      "expiredDate.rawExpiredDate": { $gte: new Date() },
+      "startDate.everyday": true
     });
     res.render("home", { contents });
   } catch (error) {

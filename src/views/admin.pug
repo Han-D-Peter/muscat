@@ -32,7 +32,8 @@ block maincontent
         each item in contents
             .admin__content-box
                 .admin__content-list
-                    .admin__content-listBox #{item.name}
+                    a(href="detail/"+item.id)
+                        .admin__content-listBox #{item.name}
                 .admin__content-list
                     .admin__content-listBox 
                         each tag in item.tags.tagsArr

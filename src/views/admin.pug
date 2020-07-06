@@ -47,7 +47,7 @@ block maincontent
                         else
                                 span #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
                 .admin__content-list
-                    .admin__content-listBox.listBoxOutline #{item.outline}
+                    .admin__content-listBox.listBoxOutline#listBoxOutline(style="white-space: pre-line") #{item.outline}
                 .admin__content-list
                     .admin__content-listBox.listBoxRange #{item.range}
                 .admin__content-list
@@ -55,7 +55,7 @@ block maincontent
                         a(href=item.url)
                             .admin-url-text 사이트 링크
                 .admin__content-list
-                    .admin__content-listBox.listBoxEval #{item.evaluation}
+                    .admin__content-listBox.listBoxEval#listBoxEval(style="white-space: pre-line") #{item.evaluation}
                 .admin__content-list
                     .admin__content-listBox.listBoxRating #{item.rating}
                 .admin__content-list

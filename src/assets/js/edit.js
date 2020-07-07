@@ -31,7 +31,8 @@ const scholarSelection = document.querySelector(
   ".formSelect__scholar-selection"
 );
 const eduSelection = document.querySelector(".formSelect__edu-selection");
-const rangeSelection = document.querySelector(".formSelect__range-selection");
+//임시로 사용중지
+//const rangeSelection = document.querySelector(".formSelect__range-selection");
 const ratingSelection = document.querySelector(".formSelect__rating-selection");
 
 const jobsupportClick = e => {
@@ -81,7 +82,7 @@ function init() {
   startupSelection.addEventListener("click", startupClick);
   scholarSelection.addEventListener("click", scholarClick);
   eduSelection.addEventListener("click", eduClick);
-  rangeSelection.addEventListener("click", rangeClick);
+  //rangeSelection.addEventListener("click", rangeClick);
   ratingSelection.addEventListener("click", ratingClick);
 }
 

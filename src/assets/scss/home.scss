@@ -73,6 +73,7 @@
         }
       }
       .content-boxName {
+        margin-top: 8px;
         font-size: 20px;
         margin-bottom: 5px;
       }
@@ -80,7 +81,7 @@
         font-size: 12px;
       }
       .content-boxRating {
-        margin-top: 20px;
+        margin-top: 17px;
         font-size: 12px;
       }
     }
@@ -88,5 +89,5 @@
 }
 
 .ratingStar {
-  color: #b5cd1f;
+  color: red;
 }

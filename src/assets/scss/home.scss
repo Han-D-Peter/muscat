@@ -75,7 +75,11 @@
       .content-boxName {
         margin-top: 8px;
         font-size: 20px;
+        height: 25px;
         margin-bottom: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .content-boxDate {
         font-size: 12px;

@@ -117,7 +117,7 @@
   }
   .floatingBox__tags {
     position: absolute;
-    top: -40px;
+    top: -30px;
     height: 30px;
     font-size: 10px;
     display: flex;
@@ -135,14 +135,19 @@
   }
 
   .floatingBox__boxName {
-    font-size: 20px;
+    font-size: 17px;
+    margin-top: 5px;
     margin-bottom: 5px;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .floatingBox__boxDate {
     font-size: 12px;
   }
   .floatingBox__boxRating {
-    margin-top: 20px;
+    margin-top: 5px;
     font-size: 12px;
   }
 }

@@ -42,6 +42,7 @@ html
                         .formWrite__pic-input
                             label(for="file") Image File
                             input(type="file", id="file", name="imageFile", accept="images/*")
+                            img#formWrite__pic-img(src="#")
                     <hr>
                     .formWrite__name
                         .formWrite__name-comment 제목:
@@ -187,5 +188,6 @@ html
                     .formSelect__submit-input
                         input(id="submitinput", type="submit", value="Upload Image")
         script(src="/static/main.js")
+    
         
                         

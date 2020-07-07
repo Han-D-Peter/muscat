@@ -2,13 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .admin__header-function {
+    position: fixed;
+    z-index: 3;
+  }
   .admin__header-text {
+    position: fixed;
+    top: 40px;
     font-size: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 900px;
     margin-bottom: 50px;
+    z-index: 3;
   }
 }
 
@@ -17,8 +24,11 @@
   flex-direction: column;
   align-items: center;
   .admin__column-box {
-    margin-top: 30px;
+    position: fixed;
+    top: 0px;
+    background-color: white;
     width: 100%;
+    padding-top: 200px;
     display: flex;
     justify-content: center;
     .admin__column-list {
@@ -26,19 +36,19 @@
       text-align: center;
       .admin__column-listBox {
         font-size: 25px;
-        margin-top: 2px;
       }
     }
   }
 }
 
 .admin__content {
+  margin-top: 250px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   .admin__content-box {
-    margin-top: 15px;
+    margin-top: 5px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -49,12 +59,34 @@
       align-items: center;
       height: auto;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
       .admin__content-listBox {
         margin-top: 2px;
       }
     }
   }
+}
+
+.listBoxIndex {
+  width: 100px;
+}
+.listBoxJobsupport {
+  width: 150px;
+}
+.listBoxStaysupport {
+  width: 150px;
+}
+.listBoxEconomysupport {
+  width: 150px;
+}
+.listBoxStartupsupport {
+  width: 150px;
+}
+.listBoxScholarship {
+  width: 150px;
+}
+.listBoxEduprogram {
+  width: 150px;
 }
 
 .listBoxName {
@@ -94,7 +126,7 @@
 }
 
 hr {
-  width: 2000px;
+  width: 2800px;
 }
 
 .admin__endText {

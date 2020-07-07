@@ -1,74 +1,185 @@
-extends layouts/main.pug
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width", initial-scale="1.0") 
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        script(src="https://kit.fontawesome.com/3c72e91e44.js"
+      crossorigin="anonymous")
+        link(rel="stylesheet", href="/static/styles.css")
+        title Muscat - Edit
+    body              
+        .admin__header
+            .admin__header-function
+                if !user
+                    span
+                        a(href="/join") Join
+                    span
+                        a(href="/login") ||Log In
+                else
+                    span
+                        a(href="/logout") Log Out
+                    span
+                        a(href="/edit") ||글쓰기
+                    span
+                        a(href="/admin") ||어드민페이지
+                    span
+                        a(href="/") ||홈으로
+            .admin__header-text
+                span.admin__header-span 게시글 목록
+        .admin__column
+            .admin__column-box
+                .admin__column-list 
+                    .admin__column-listBox.listBoxIndex 연번
+                .admin__column-list 
+                    .admin__column-filter
+                        select(name="jobsupportFilter")
+                            option(value="") ---
+                            option(value="있음") 있음
+                            option(value="없음") 없음
+                    .admin__column-listBox.listBoxJobsupport 취업지원
+                .admin__column-list
+                    .admin__column-filter
+                        select(name="staysupportFilter")
+                            option(value="") ---
+                            option(value="있음") 있음
+                            option(value="없음") 없음 
+                    .admin__column-listBox.listBoxStaysupport 주거지원
+                .admin__column-list 
+                    .admin__column-filter
+                        select(name="economysupportFilter")
+                            option(value="") ---
+                            option(value="은행권") 은행권
+                            option(value="정부지원") 정부지원
+                            option(value="없음") 없음
+                    .admin__column-listBox.listBoxEconomysupport 경제적지원
+                .admin__column-list 
+                    .admin__column-filter
+                        select(name="startupsupportFilter")
+                            option(value="") ---
+                            option(value="교육지원") 교육공간지원
+                            option(value="공간지원") 공간지원
+                            option(value="인건비지원") 인건비지원
+                            option(value="마케팅지원") 마케팅지원
+                            option(value="없음") 없음
+                    .admin__column-listBox.listBoxStartupsupport 창업지원
+                .admin__column-list 
+                    .admin__column-filter
+                        select(name="scholarshipFilter")
+                            option(value="") ---
+                            option(value="민간") 민간
+                            option(value="재단") 재단
+                            option(value="지자체") 지자체
+                            option(value="없음") 없음
+                    .admin__column-listBox.listBoxScholarship 장학금
+                .admin__column-list
+                    .admin__column-filter
+                        select(name="eduprogramFilter")
+                            option(value="") ---
+                            option(value="온라인") 온라인
+                            option(value="오프라인") 오프라인
+                            option(value="없음") 없음
+                    .admin__column-listBox.listBoxEduprogram 교육프로그램
+                .admin__column-list
+                    .admin__column-listBox.listBoxName 제목
+                .admin__column-list 
+                    .admin__column-listBox.listBoxTags 태그
+                .admin__column-list 
+                    .admin__column-listBox.listBoxExpired 기한
+                .admin__column-list 
+                    .admin__column-listBox.listBoxOutline 개요
+                .admin__column-list 
+                    .admin__column-listBox.listBoxRange 대상자
+                .admin__column-list 
+                    .admin__column-listBox.listBoxLink 링크
+                .admin__column-list 
+                    .admin__column-listBox.listBoxEval 평가
+                .admin__column-list 
+                    .admin__column-listBox.listBoxRating 평점
+                .admin__column-list 
+                    .admin__column-listBox.listBoxUpdate 수정    
+                .admin__column-list 
+                    .admin__column-listBox.listBoxDelete 삭제
 
-block maincontent
-    .admin__header
-        .admin__header-text
-            span.admin__header-span 게시글 목록
-    .admin__column
-        .admin__column-box
-            .admin__column-list 
-                .admin__column-listBox.listBoxName 제목
-            .admin__column-list 
-                .admin__column-listBox.listBoxTags 태그
-            .admin__column-list 
-                .admin__column-listBox.listBoxExpired 기한
-            .admin__column-list 
-                .admin__column-listBox.listBoxOutline 개요
-            .admin__column-list 
-                .admin__column-listBox.listBoxRange 대상자
-            .admin__column-list 
-                .admin__column-listBox.listBoxLink 링크
-            .admin__column-list 
-                .admin__column-listBox.listBoxEval 평가
-            .admin__column-list 
-                .admin__column-listBox.listBoxRating 평점
-            .admin__column-list 
-                .admin__column-listBox.listBoxUpdate 수정    
-            .admin__column-list 
-                .admin__column-listBox.listBoxDelete 삭제
+        <hr>
+        .admin__content
+            each item in contents
+                .admin__content-box
+                    .admin__content-list
+                        .admin__content-listBox.listBoxIndex
+                            -var index = contents.indexOf(item) +1
+                                span #{index}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxJobsupport
+                            if item.jobsupport == "없음"
+                                span
+                            else
+                                span=item.jobsupport
+                    .admin__content-list
+                        .admin__content-listBox.listBoxStaysupport
+                            if item.staysupport == "없음"
+                                span
+                            else
+                                span=item.staysupport
+                    .admin__content-list
+                        .admin__content-listBox.listBoxEconomysupport
+                            if item.economysupport == "없음"
+                                span
+                            else
+                                span=item.economysupport
+                    .admin__content-list
+                        .admin__content-listBox.listBoxStartupsupport
+                            if item.startupsupport == "없음"
+                                span
+                            else
+                                span=item.startupsupport
+                    .admin__content-list
+                        .admin__content-listBox.listBoxScholarship
+                            if item.scholarship == "없음"
+                                span
+                            else
+                                span=item.scholarship
+                    .admin__content-list
+                        .admin__content-listBox.listBoxEduprogram
+                            if item.eduprogram == "없음"
+                                span
+                            else
+                                span=item.eduprogram
+                    .admin__content-list
+                        a(href="detail/"+item.id)
+                            .admin__content-listBox.listBoxName #{item.name}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxTags 
+                            each tag in item.tags.tagsArr
+                                span.content-listBox-tag #{tag+"|"}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxExpired
+                            if item.startDate.everyday === true
+                                    span 상시
+                            else if item.expiredDate.rawExpiredDate > new Date()
+                                    span 만료
+                            else
+                                    span #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxOutline#listBoxOutline(style="white-space: pre-line") #{item.outline}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxRange #{item.range}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxLink
+                            a(href=item.url)
+                                .admin-url-text 사이트 링크
+                    .admin__content-list
+                        .admin__content-listBox.listBoxEval#listBoxEval(style="white-space: pre-line") #{item.evaluation}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxRating #{item.rating}
+                    .admin__content-list
+                        .admin__content-listBox.listBoxUpdate
+                            a(href="/update/"+item.id) 수정
+                    .admin__content-list
+                        .admin__content-listBox.listBoxDelete
+                            a(href="/delete/"+item.id) 삭제
+                <hr>
 
-    <hr>
-    .admin__content
-        each item in contents
-            .admin__content-box
-                .admin__content-list
-                    a(href="detail/"+item.id)
-                        .admin__content-listBox.listBoxName #{item.name}
-                .admin__content-list
-                    .admin__content-listBox.listBoxTags 
-                        each tag in item.tags.tagsArr
-                            span.content-listBox-tag #{tag+"|"}
-                .admin__content-list
-                    .admin__content-listBox.listBoxExpired
-                        if item.startDate.everyday === true
-                                span 상시
-                        else if item.expiredDate.rawExpiredDate > new Date()
-                                span 만료
-                        else
-                                span #{item.startDate.startyear}-#{item.startDate.startmonth}-#{item.startDate.startday} ~ #{item.expiredDate.expiredyear}-#{item.expiredDate.expiredmonth}-#{item.expiredDate.expiredday}
-                .admin__content-list
-                    .admin__content-listBox.listBoxOutline#listBoxOutline(style="white-space: pre-line") #{item.outline}
-                .admin__content-list
-                    .admin__content-listBox.listBoxRange #{item.range}
-                .admin__content-list
-                    .admin__content-listBox.listBoxLink
-                        a(href=item.url)
-                            .admin-url-text 사이트 링크
-                .admin__content-list
-                    .admin__content-listBox.listBoxEval#listBoxEval(style="white-space: pre-line") #{item.evaluation}
-                .admin__content-list
-                    .admin__content-listBox.listBoxRating #{item.rating}
-                .admin__content-list
-                    .admin__content-listBox.listBoxUpdate
-                        a(href="/update/"+item.id) 수정
-                .admin__content-list
-                    .admin__content-listBox.listBoxDelete
-                        a(href="/delete/"+item.id) 삭제
-            <hr>
-
-    .admin__endText
-        .admin__endText-text 끝
-        
-
-
+        .admin__endText
+            .admin__endText-text 끝
 

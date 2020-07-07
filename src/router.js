@@ -15,7 +15,8 @@ import {
   getAdmin,
   getAdminUpdate,
   postAdminUpdate,
-  deleteContent
+  deleteContent,
+  categoryFilter
 } from "./controllers/admincontroller";
 
 export const userRouter = express.Router();
@@ -50,5 +51,6 @@ editRouter.get("/:id", (req, res) => res.send("id edit"));
 detailRouter.get("/:id", detail);
 
 adminRouter.get("/", onlyPrivate, getAdmin);
+adminRouter.get("/filter", onlyPrivate, categoryFilter);
 
 deleteRouter.get("/:id", onlyPrivate, deleteContent);

@@ -141,3 +141,7 @@ export const deleteContent = async (req, res) => {
   }
   res.redirect("/admin");
 };
+
+export const categoryFilter = async (req, res) => {
+  console.log("hello");
+};

@@ -40,9 +40,6 @@
       .formSelect__startup-input,
       .formSelect__scholar-input,
       .formSelect__edu-input,
-      .formSelect__range-input,
-      .formSelect__where-input,
-      .formSelect__orga-input,
       .formSelect__rating-input {
         position: relative;
         left: 100px;
@@ -118,6 +115,7 @@
 #urlinput,
 #tagsinput,
 #whereinput,
+#rangeinput,
 #orgainput {
   font-size: 20px;
   width: 500px;

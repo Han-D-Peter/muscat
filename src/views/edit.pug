@@ -79,6 +79,14 @@ html
                             span 까지
                 .edit__formSelect
                     <hr>
+                    .formSelect__range
+                        .formSelect__range-comment 대상자:
+                        //-.formSelect__range-selection
+                            .range-selection 학생
+                            .range-selection 직장인
+                            .range-selection 제한없음
+                        .formSelect__range-input
+                            input(id="rangeinput",type="text", placeholder="대상자", name="range", value="없음")
                     .formSelect__jobsupport
                         .formSelect__jobsupport-comment 취업지원:
                         .formSelect__jobsupport-selection
@@ -144,15 +152,7 @@ html
                             .edu-selection 없음
                         .formSelect__edu-input
                             input(id="eduinput",type="text", placeholder="교육프로그램", name="eduprogram", value="없음")
-                    <hr>
-                    .formSelect__range
-                        .formSelect__range-comment 신분:
-                        .formSelect__range-selection
-                            .range-selection 학생
-                            .range-selection 직장인
-                            .range-selection 제한없음
-                        .formSelect__range-input
-                            input(id="rangeinput",type="text", placeholder="신분", name="range", value="없음")
+            
                     <hr>
                     .formSelect__where
                         .formSelect__where-comment 지역:

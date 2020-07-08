@@ -13,7 +13,9 @@ export const handleHome = async (req, res) => {
         { "startDate.everyday": true }
       ]
     });
-    res.render("home", { contents });
+    const topFiveScoreSix = contents.filter(item => item.rating == 6);
+    const topFiveList = topFiveScoreSix.slice(0, 5);
+    res.render("home", { contents, topFiveList });
   } catch (error) {
     console.log(error);
     res.render("home", { contents: [] });
@@ -101,6 +103,7 @@ export const postUpload = async (req, res) => {
     var startmonth = 0;
     var startday = 0;
   } else {
+    var everyday = false;
     var startyear = startDateFromString.getFullYear();
     var startmonth = startDateFromString.getMonth() + 1;
     var startday = startDateFromString.getDate();

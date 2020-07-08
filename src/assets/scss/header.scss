@@ -77,9 +77,9 @@
 
 .floatingBox {
   border: 1px solid rgb(211, 206, 206);
-  height: 220px;
-  width: 150px;
-  margin-top: 20px;
+  height: 350px;
+  width: 230px;
+  margin-top: 30px;
   margin-left: 10px;
   margin-right: 10px;
   .floatingBox__boxName,
@@ -102,24 +102,25 @@
     display: flex;
     justify-content: flex-end;
     .floatingBox__dday-text {
+      font-size: 28px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
       color: white;
       position: absolute;
-      top: -153px;
+      top: -233px;
       background-color: green;
-      width: 58px;
-      height: 25px;
+      width: 68px;
+      height: 40px;
       border-radius: 0 0 0 20px;
     }
   }
   .floatingBox__tags {
     position: absolute;
-    top: -30px;
-    height: 30px;
-    font-size: 10px;
+    top: -40px;
+    height: 50px;
+    font-size: 20px;
     display: flex;
     .floatingBox__tags-element {
       border-radius: 10px;
@@ -128,27 +129,28 @@
       padding-top: 5px;
       padding-left: 5px;
       padding-right: 5px;
+      padding-bottom: 5px;
       width: auto;
-      height: 16px;
+      height: 20px;
       background-color: #b5cd1f;
     }
   }
 
   .floatingBox__boxName {
-    font-size: 17px;
+    font-size: 25px;
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 20px;
+    height: 31px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .floatingBox__boxDate {
-    font-size: 12px;
+    font-size: 17px;
   }
   .floatingBox__boxRating {
-    margin-top: 5px;
-    font-size: 12px;
+    margin-top: 13px;
+    font-size: 25px;
   }
 }
 

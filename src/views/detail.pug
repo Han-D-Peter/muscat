@@ -1,109 +1,98 @@
-//-extends layouts/main.pug-//
 
-//-block maincontent
+extends layouts/main.pug
 
-doctype html
-html
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width", initial-scale="1.0") 
-        meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        script(src="https://kit.fontawesome.com/3c72e91e44.js"
-      crossorigin="anonymous")
-        link(rel="stylesheet", href="/static/styles.css")
-        title Muscat
-    body
-        .detail__box
-            .detail__header
-                    .detail__header-backpage#detail__backPage
-                        <i class="fas fa-arrow-left"></i>
-                    .detail__header-name=contentElement.name
-            .detail__function
-                if user
-                    span
-                        a(href="/logout") Log Out
-                    span
-                        a(href="/edit") ||글쓰기
-                    span
-                        a(href="/admin") ||어드민페이지
-                    span
-                        a(href="/update/"+contentElement.id) ||수정
+block maincontent
+    .detail__box
+        .detail__header
+                .detail__header-backpage#detail__backPage
+                    <i class="fas fa-arrow-left"></i>
+                .detail__header-name=contentElement.name
+        .detail__function
+            if user
+                span
+                    a(href="/logout") Log Out
+                span
+                    a(href="/edit") ||글쓰기
+                span
+                    a(href="/admin") ||어드민페이지
+                span
+                    a(href="/update/"+contentElement.id) ||수정
+            
                 
-                    
 
-            .detail__middle
-                .detail__middle-img
-                    img(src=contentElement.fileUrl alt="My Image" width="200" height="250")
-                .detail__middle-comment
-                    .middle-comment-name
-                        span=contentElement.name
-                    
-                    .middle-comment-rating
-                        if contentElement.rating === 1
-                                span.detailRatingStar
-                                    <i class="fas fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                        else if contentElement.rating === 2
-                                span.detailRatingStar
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                        else if contentElement.rating === 3
-                                span.detailRatingStar
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                        else if contentElement.rating === 4
-                                span.detailRatingStar
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                        else if contentElement.rating === 5
-                                span.detailRatingStar
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                                    <i class="fas fa-circle"></i>
-                    .middle-comment-tags
-                        each item in contentElement.tags.tagsArr
-                            span ##{item} 
-
-            .detail__main
-                .detail__main-range 
-                    span.main-range-subject 대상자
-                        .main-range-text=contentElement.range
-
-                .detail__main-date
-                    span.main-date-subject 기한
-                    if contentElement.startDate.everyday === true
-                        .main-range-text 상시
-                    else 
-                        .main-range-text
-                            span #{contentElement.startDate.startyear}-#{contentElement.startDate.startmonth}-#{contentElement.startDate.startday} ~ #{contentElement.expiredDate.expiredyear}-#{contentElement.expiredDate.expiredmonth}-#{contentElement.expiredDate.expiredday}
-
-                .detail__main-outline
-                    span.main-outline-subject 개요(내용)
-                    .main-outline-text(style="white-space: pre-line")=contentElement.outline
+        .detail__middle
+            .detail__middle-img
+                img(src=contentElement.fileUrl alt="My Image" width="200" height="250")
+            .detail__middle-comment
+                .middle-comment-name
+                    span=contentElement.name
                 
-                .detail__main-evaluation
-                    span.main-evaluation-subject 평가
-                    .main-evaluation-text(style="white-space: pre-line")=contentElement.evaluation
-                
-                .detail__main-url
-                    span.main-url-subject 링크
-                    a(href=contentElement.url)
-                        .main-url-text=contentElement.url
-        script(src="/static/main.js")
-        
+                .middle-comment-rating
+                    if contentElement.rating === 1
+                            span.detailRatingStar
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                    else if contentElement.rating === 2
+                            span.detailRatingStar
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                    else if contentElement.rating === 3
+                            span.detailRatingStar
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                    else if contentElement.rating === 4
+                            span.detailRatingStar
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                    else if contentElement.rating === 5
+                            span.detailRatingStar
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                .middle-comment-tags
+                    each item in contentElement.tags.tagsArr
+                        span ##{item} 
+
+        .detail__main
+            .detail__main-range 
+                span.main-range-subject 대상자
+                    .main-range-text=contentElement.range
+
+            .detail__main-date
+                span.main-date-subject 기한
+                if contentElement.startDate.everyday === true
+                    .main-range-text 상시
+                else 
+                    .main-range-text
+                        span #{contentElement.startDate.startyear}-#{contentElement.startDate.startmonth}-#{contentElement.startDate.startday} ~ #{contentElement.expiredDate.expiredyear}-#{contentElement.expiredDate.expiredmonth}-#{contentElement.expiredDate.expiredday}
+
+            .detail__main-outline
+                span.main-outline-subject 개요(내용)
+                .main-outline-text(style="white-space: pre-line")=contentElement.outline
+            
+            .detail__main-evaluation
+                span.main-evaluation-subject 평가
+                .main-evaluation-text(style="white-space: pre-line")=contentElement.evaluation
+            
+            .detail__main-url
+                span.main-url-subject 링크
+                a(href=contentElement.url)
+                    .main-url-text=contentElement.url
+    script(src="/static/main.js")
+    
 
                 

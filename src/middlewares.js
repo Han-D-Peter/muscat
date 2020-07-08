@@ -18,7 +18,7 @@ const multerImage = multer({
 });
 
 export const localsMiddleware = async (req, res, next) => {
-  const topFive = await Content.find({
+  /*const topFive = await Content.find({
     $or: [
       {
         "expiredDate.rawExpiredDate": { $gte: new Date() }
@@ -32,10 +32,10 @@ export const localsMiddleware = async (req, res, next) => {
   res.locals.user = req.user || null;
   res.locals.topFiveList = topFiveSort.slice(0, 5);*/
 
-  const topFiveScoreSix = topFive.filter(item => item.rating == 6);
+  /*const topFiveScoreSix = topFive.filter(item => item.rating == 6);
+  res.locals.topFiveList = topFiveScoreSix.slice(0, 5);*/
 
   res.locals.user = req.user || null;
-  res.locals.topFiveList = topFiveScoreSix.slice(0, 5);
   next();
 };
 
